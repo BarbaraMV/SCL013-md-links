@@ -37,12 +37,19 @@ const fs = require('fs');
          })
      }
  })*/
- const path = process.argv[2];
+ const path = process.argv[2]; //toma el nombre del archivo
+ console.log(process.argv[0], "esta funcionando el 0");
+ console.log(process.argv[1], "funciona el 1");
+ console.log(process.argv[2], "funciona el 2");
 
-fs.readdir(path, function(err, items) {
-    console.log(items);
+fs.readFile(path,'utf8', function (err, data) {
+    console.log("leyendo archivo");
+  if(err){
+    console.log(`Error ${err}`);
+
+  }else {
+    console.log(data);
+  }
+    
  
-    for (var i=0; i<items.length; i++) {
-        console.log(items[i]);
-    }
 });
